@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="css/reset.min.css"/>
+    <link rel="stylesheet" href="css/swiper.min.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="css/index1.css"/>
+</head>
+<script>
+    /*移动适配*/
+    var desW = 640;
+    var winW = document.documentElement.clientWidth;
+    document.documentElement.style.fontSize = winW / desW * 100 + 'px';
+    /*各个设备根元素字体大小*/
+</script>
+<body>
+<section class="main">
+    <section class="music">
+        <audio src="audio/beyond.mp3" preload="none" id="beyond"></audio>
+        <!--
+        controls 用户操作界面
+        autoplay 自动播放
+        loop 循环播放
+        preload:auto 预加载音频文件
+                metadata 只加载音频文件的元数据，例如（音频文件总共的播放时间）
+                none 不提前加载音频文件
+        -->
+    </section>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1">
+                <img src="image/2.png" alt="">
+                <img src="image/3.png" alt="">
+                <img src="image/1.png" alt="">
+                <!--<div class="qiuzhi">求职</div>-->
+                <!--<img src="image/top.png" alt="">-->
+<!--                <img src="image/bottom.png" alt="">-->
+                <img src="image/grjl.png" alt="">
+                <div class="divBox">
+                    <!--<div class="div1">-->
+                        <!--<p>个人</p>-->
+                        <!--<p>简历</p>-->
+                    <!--</div>-->
+                    <!--<div class="div2">岗位：前端工程师</div>-->
+                </div>
+
+            </div>
+            <div class="swiper-slide slide2">
+                <div class="bodyBig">
+                    <div class="bodyInner">
+                        <img class="mouse" src="image/mouse.png" alt="">
+                        <div class="blueBg">个人简历</div>
+                        <div class="userInfo">
+                            <div class="phone"><img src="image/page1rw.jpg" alt=""></div>
+                            <div class="user">
+                                <p>姓名:梁婷</p>
+                                <p>年龄:26</p>
+                                <p>性别:女</p>
+                            </div>
+                        </div>
+                        <div class="userBig">
+                        <ul class="userBox">
+                            <li><span>学历：专科</span><span class="from">籍贯：河北</span></li>
+                            <li>毕业院校：石家庄科技职业学院</li>
+                            <li class="blod">专业：计算机应用与技术</li>
+                            <li class="blod">电话：17710434518</li>
+                        </ul>
+                        </div>
+                        <img src="image/cilun.png" alt="">
+                        <img src="image/cilun.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide slide3">
+                <img src="image/cup.png" alt="" class="cup">
+                <div class="jnTitle">个人技能</div>
+                <div class="wrapBg">
+                    <ul>
+                        <li>
+                            <span>CSS</span>
+                            <div class="jindu"><span></span></div>
+                        </li>
+                        <li>
+                            <span>JS</span>
+                            <div class="jindu"><span></span></div>
+                        </li>
+                        <li>
+                            <span>H5</span>
+                            <div class="jindu"><span></span></div>
+                        </li>
+                        <li>
+                            <span>Bootstrap</span>
+                            <div class="jindu"><span></span></div>
+                        </li>
+                        <li>
+                            <span>PS</span>
+                            <div class="jindu"><span></span></div>
+                        </li>
+                        <li>
+                            <span>WebStorm</span>
+                            <div class="jindu"><span></span></div>
+                        </li>
+                    </ul>
+                    <div class="six"><img src="image/six2.png" alt=""></div>
+
+
+                </div>
+                <img src="image/bg_person.png" alt="" class="person">
+            </div>
+            <div class="swiper-slide slide4">
+                <div class="slide4Bg">
+                    <div class="topImg">
+                        <img src="image/about.png" alt="">
+                        <i class="line1"></i>
+                        <i class="line2"></i>
+                    </div>
+
+                    <!--<P class="xinge">我的性格</P>-->
+                    <i class="c1 cc1">性格好</i>
+                    <i class="c1 c2">乐观</i>
+                    <i class="c1 c3">积极</i>
+                    <i class="c1 c4">开朗</i>
+                    <i class="c1 c5">热爱IT</i>
+                    <i class="c1 c6">团结</i>
+                    <i class="c1 c7">有爱</i>
+                </div>
+            </div>
+            <div class="swiper-slide slide5">
+                <img src="image/erm.png" alt="" class="ewm">
+                <img src="image/thanks.png" alt="" class="thanks">
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+<script src="js/swiper.min.js"></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        direction: "vertical",
+        loop:true,
+        onTransitionEnd: function (swiper) {
+            var curIndex = swiper.activeIndex;//当前活动滑块的索引,也就是上一个滑块结束后到下一个滑块的索引
+            var slides = swiper.slides;//获得所有的滑块
+            //要做的事情:通过当前活动滑块的索引找到对应的滑块，加相应的id名
+            [].forEach.call(slides, function (item, index) {
+                item.id = "";
+                if (index == curIndex) {
+                    //当前活动滑块是否是第一个或者最后一个
+                    /*if(curIndex == 0){
+                        slides[0].id = "page" + (slides.length-2);
+                    }else if(curIndex == slides.length-1){
+                        slides[curIndex].id = "page1";
+                    }else{
+                        slides[curIndex].id = "page" + index;
+                    }*/
+                    switch (index){
+                        case 0:
+                            item.id = "page" + slides.length-2;
+                            break;
+                        case slides.length-1:
+                            item.id = "page1";
+                            break;
+                        default :
+                            item.id = "page" + index;
+                    }
+                }
+            })
+        }/*,
+        onInit: function (swiper) {
+            var slides = swiper.slides;
+            slides[0].id = "page1";
+        }*/
+    })
+    var music = document.querySelector('.music');
+    var beyond = document.querySelector('#beyond');
+    window.setTimeout(function(){
+        music.style.opacity = 1;
+        beyond.play();
+        music.className = "music musicMove";
+    },1000)
+    /*音频播放 播放 play() 停止 pause()*/
+    /***
+     * 怎样去判断当前的音频文件 是 播放 还是 停止的
+     * true 停止
+     * false 播放
+     * */
+    music.addEventListener("click",function(){
+        if(beyond.paused){
+            beyond.play();
+            music.className = "music musicMove";
+        }else{
+            beyond.pause();
+            music.className = "music";
+        }
+    },false);
+</script>
